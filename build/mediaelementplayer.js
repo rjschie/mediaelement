@@ -2510,7 +2510,7 @@ if (typeof jQuery != 'undefined') {
 								// Screen width is sort of useless: http://www.quirksmode.org/blog/archives/2013/11/screenwidth_is.html
 								// My rMBP ignores devicePixelRatio when returning the values, so fullscreen would always fail the "suddenly not fullscreen" test
 								// Theory: the gap between reported values should give us an indication of browser behavior with screen.width and devicePixelRatio
-								zoomedWindowWidth = zoomMultiplier * windowWidth;
+								zoomedWindowWidth = windowWidth / zoomMultiplier;
 								
 							if (Math.abs(screenWidth-windowWidth) > Math.abs(screenWidth-zoomedWindowWidth)) {
 								// screen.width is likely true pixels, not CSS pixels, so we need to use the zoomed window width for comparison
@@ -2519,7 +2519,7 @@ if (typeof jQuery != 'undefined') {
 							// ** / 13twelve
 
 							// multiply absDiff by percentErrorMargin to normalize alongside marginError value
-							var absDiff = Math.abs(screenWidth - windowWidth) * percentErrorMargin,
+							var absDiff = Math.abs(screenWidth - windowWidth),
 								marginError = screenWidth * percentErrorMargin;
 
 							// check if the video is suddenly not really fullscreen

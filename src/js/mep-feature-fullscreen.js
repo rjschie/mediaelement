@@ -358,7 +358,8 @@
 							}
 							// ** / 13twelve
 
-							var absDiff = Math.abs(screenWidth - windowWidth),
+							// multiply absDiff by percentErrorMargin to normalize alongside marginError value
+							var absDiff = Math.abs(screenWidth - windowWidth) * percentErrorMargin,
 								marginError = screenWidth * percentErrorMargin;
 
 							// check if the video is suddenly not really fullscreen
